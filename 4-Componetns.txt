@@ -1,0 +1,66 @@
+
+-->A COMPONENTS in React is like a reusable building block for your user interface. 
+    Think of it like a LEGO piece: you can build small parts (like a button or a header), 
+    and then combine them to build a full app.
+
+-->Functional Components are the most common use. This means that I can make a fucntion that will,
+return something that I will use in the webapp as jxs. So I will have the funtion but I have also to,
+export the function to use in the other file. I had to especify this like this:
+--> export delfualt nameOftheFucntion;//Notice that I do not use the () as fucntion, buecause It will use as a fuciont there.
+
+-->Generelay in the main fail JS file(index.js), I will call an App fucntion, that also will call other compoments.
+For example in the App.jsx file I wil have to import other compoments by import them like this:
+--> import Component(this is the name of the fucntion) from "./Component(this is the path of the file and I do not need to add the extetion jsx)" 
+
+-->In the file that I will use the component I have that call it with a tag like this:
+--> <Component /> //The name a space a slash in a open/close tag.
+
+EXAMPLE of file extructure.
+
+1-----index.js---
+import React from "react"; //Import React to write JSX.
+import ReactDOM from "react-dom"; //To create the webapp.
+import App from "./App"; //Import the App component.
+
+ReactDOM.render(<App />, document.getElementById("root"));
+//Just here I just will call the App component, that is the way and looks clean.
+
+2-----App.jsx---
+import React from "react"; //Import React to write JSX.
+import H1 from "./H1"; //Import the H1 component.
+import List from "./List"; //Import the List component.
+
+function App() {
+  return (
+    <div>
+      <H1 />
+      <List />
+    </div>
+  );
+}
+export default App; //Export out side the function obviously.
+
+3-----H1.jsx---
+import React from "react"; //Import React to write JSX.
+
+function H1() {
+  return( 
+  <h1>My Favourite Foods</h1>
+  )
+}
+export default H1; //export out side the function obviously.
+
+4-----List.jsx---
+import React from "react"; //Always import React to write JSX.
+
+function List() {
+  return (
+    //the fuciont will always return something.
+    <ul>
+      <li>Bacon</li>
+      <li>Jamon</li>
+      <li>Noodles</li>
+    </ul>
+  );
+}
+export default List; //Export out side the function obviously.

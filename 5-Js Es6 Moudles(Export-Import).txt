@@ -1,0 +1,60 @@
+--Js ES6--
+Think of ES6 as the modern version of JavaScript — and React is built to take full advantage of it.
+
+Key ES6 Features Used in React
+Here are the most important ES6 features you’ll use constantly in React:
+
+Feature	                      What It Does                 	              React Use Case Example
+
+->let and const	                Block-scoped variables	                  Declare state or props
+->Arrow functions	             Shorter function syntax	                  Define components or event handlers
+->Template literals	            Embed variables in strings with ${}	      Dynamic JSX content
+->Destructuring	                Extract values from objects/arrays	          Access props or state easily
+->Modules (import/export)	    Split code into reusable files	              Import React, components, styles
+->Classes	                    Blueprint for objects	                      (Older) class-based components
+->Spread/rest ...	            Expand or collect values	                  Merge props, clone arrays
+->Promises & async/await	    Handle asynchronous code	                  Fetch data from APIs
+
+--What is the differecen between cosnt and let?--
+
+-->const = constant → once you assign a value, it’s locked in.
+-->let = flexible → you can change the value later.
+
+--EXAMPLE--
+//In this examples is explained the use of export/import for defualt const/function/s and when there are not defualt.
+
+--index.js--
+import React from "react";
+import ReactDOM from "react-dom";
+import pi, { doublePi, triplePi } from "./math.js";
+
+ReactDOM.render(
+  <ul>
+    <li>{pi}</li>
+    <li>{doublePi()}</li>
+    <li>{triplePi()}</li>
+  </ul>,
+  document.getElementById("root")
+);
+//So here I discuss the use of "import" as I can see in the component math.js.
+//That have more of one stuff to import, so in the math.js file It will be one and
+//only one paramter as default in the export statement( expeort defult pi).
+//But I can also export the other stuff like the other 2 function doublePi and triplePi.
+//So in the top I have the correct way for=> import pi, {doublePi, triplePi} from "./matn.js"
+//Also I can use  wild card * to import everything from math.js but this is not use.
+
+--math.js--
+const pi = 3.1415962;
+
+function doublePi() {
+  return pi * 2;
+}
+
+function triplePi() {
+  return pi * 3;
+}
+
+export default pi;
+export { doublePi, triplePi };
+//Here I have the defult export and the specific export
+//pi is a constnat in this case, and doublePi and triplePi are fuctions.

@@ -15,8 +15,7 @@ For example in the App.jsx file I wil have to import other compoments by import 
 -->In the file that I will use the component I have that call it with a tag like this:
 --> <Component /> //The name a space a slash in a open/close tag.
 
-EXAMPLE of file extructure.
-
+---1-EXAMPLE of file extructure-----
 1-----index.js---
 import React from "react"; //Import React to write JSX.
 import ReactDOM from "react-dom"; //To create the webapp.
@@ -64,3 +63,62 @@ function List() {
   );
 }
 export default List; //Export out side the function obviously.
+
+----2 EXAMPLE-------
+
+
+1--index.js--
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./../public/styles.css";
+import App from "../Components/App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<App />);
+
+//This app will generate a greeting, taking in account the time of the day.
+//So, I have 2 components:
+//1-Is the heading.jsx, that have the logic of the app.
+//Look at the return statement is with the H1 and not the whole logic, just the H1.
+//2-Is the App.jsx that calls the Heading components. Here do not forget to import the Heading from Heading.
+//At last I have the Indes.js, where I will call the component App.jsx. Do not forget to import App, from the
+//correct phat, because I have a folder specific for the components="../Components/App".
+
+2--App.jsx--
+import React from "react";
+import Heading from "./heading";
+
+function App() {
+  return <Heading />;
+}
+export default App;
+
+3--heading.jsx--
+import React from "react";
+const date = new Date();
+const currentTime = date.getHours();
+let greeting;
+const customStyle = {
+  color: "",
+};
+
+function Heading() {
+  if (currentTime < 12) {
+    greeting = "Good Morning";
+    customStyle.color = "red";
+  } else if (currentTime < 18) {
+    greeting = "Good Afternoon";
+    customStyle.color = "green";
+  } else {
+    greeting = "Good Night";
+    customStyle.color = "blue";
+  }
+//The return statement is only of the H1, not of the whole logic.
+  return (
+    <h1 className="heading" style={customStyle}>
+      {greeting}
+    </h1>
+  );
+}
+export default Heading;

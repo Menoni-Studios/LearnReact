@@ -1,0 +1,59 @@
+Key Takeaways
+
+=Styling React elements requires using the className attribute instead of class.
+In the index.js--><h1 class="heading">Hello World</h1>
+In the styles.css-->.heading {color: red;}
+
+=JSX attributes that have more than one word must be written in camelCase.
+Attributes=https://www.w3schools.com/tags/ref_attributes.asp
+Globa attributes=https://www.w3schools.com/tags/ref_standardattributes.asp
+
+=CSS classes should be defined in kebab-case and applied via className in JSX.
+I should name classes with 2 o more words like this: className="more-than-one-word";
+
+=JavaScript expressions can be used as attribute values in JSX by enclosing them in curly braces.
+You can insert JavaScript as an attribute value in JSX. For example, using a service like Lorem Picsum, you can generate a random image URL and use it as the src for an image element.
+In the index.js-->const img = "https://picsum.photos/200";
+-----------------><img src={img} />
+
+Do not foreget to link the style sheet!
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JSX</title>
+----------><link rel="stylesheet" href="styles.css" /><---------
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="../src/index.js" type="text/javascript"></script>
+  </body>
+</html>
+
+----------->Inline Styling for React Elements<----------
+
+You might wonder why we would use inline styling when class-based styling with style sheets is recommended by React documentation. Inline styling is particularly useful when you want styles to update dynamically while your app is running, such as when a user interacts with the app, or when the time or day changes.
+
+Let me demonstrate. I will cut the JavaScript object and save it inside a constant named customStyle. Then, I will expand it to add more styles.
+
+When using CSS properties in JavaScript objects, remember that CSS properties are normally kebab-cased (lowercase words separated by hyphens), but in JavaScript objects, these must be converted to camelCase. For example, font-size becomes fontSize.
+
+For example, to change the font size, instead of font-size, we write fontSize and set it to a string value such as 20px. Also, instead of semicolons used in CSS, we use commas to separate key/value pairs in the JavaScript object.
+
+Values for each key/value pair must be strings, including those with spaces. For instance, to add a border, you would write border: "1px solid black" as a string preserving the spaces.
+
+Now that the customStyle constant is created, I can insert this object as the value for the style property by wrapping it in curly braces to denote JavaScript expression.
+
+Once compiled, the heading (h1) changes its font size, border, and color according to the styles defined in customStyle.
+
+The interesting part is that if something changes in the code, such as user interaction or time of day, we can update the properties of the customStyle object to change the style dynamically without modifying the JSX code itself.
+
+For example, changing the color property in customStyle from red to blue and saving the file immediately updates the style of the heading.
+
+This ability to change styles on the fly is one of the main reasons to use inline styling in React.
+
+
+So here in this sandBox Url, I have a project that take this knowledge to parctice.
+
+https://codesandbox.io/p/sandbox/javascript-expressions-in-jsx-practice-forked-sllr9j?file=%2Fsrc%2Findex.js%3A57%2C19

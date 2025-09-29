@@ -1,0 +1,37 @@
+--What is it JSX?--
+JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. 
+It is commonly used with React to describe what the UI should look like. 
+JSX makes it easier to write and add HTML in React applications by converting HTML tags into React elements.
+
+
+--Set up of the app--
+-->import React from "react";
+//This imports the React library, which is essential for writing JSX
+
+-->import ReactDOM from "react-dom/client";
+/*This imports the ReactDOM client API, introduced in React 18.
+
+It gives you access to createRoot(), which replaces the older ReactDOM.render() method.
+
+This is part of React’s move toward concurrent rendering and better performance.*/
+
+-->const root = ReactDOM.createRoot(document.getElementById("root"));
+/*This finds the HTML element with the ID root — usually defined in your index.html like:<div id="root"></div>
+
+Then it creates a React root inside that element, which is where your React app will live.
+
+This is the new way to initialize rendering in React 18+.*/
+
+-->root.render(
+  <div>
+    <h1>Hello Marcelo!!</h1>
+    <p>This is my paragraph</p>
+  </div>
+);
+//Using div I can write sevrela html elements in one element, making this work.
+
+/*This tells React to render the JSX <h1>Hello Marcelo!!</h1> inside the root element.
+
+JSX is a syntax extension that lets you write HTML-like code in JavaScript.
+
+Under the hood, React converts this into virtual DOM instructions and efficiently updates the real DOM.*/

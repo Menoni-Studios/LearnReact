@@ -1,0 +1,67 @@
+//1----------------------------------
+//Create a react app from scratch.
+//It should display 2 paragraph HTML elements.
+//The paragraphs should say:
+//Created by YOURNAME.
+//Copyright CURRENTYEAR.
+//E.g.
+//Created by Angela Yu.
+//Copyright 2019.
+//2---Chanllnage-------Add style and dynamic style
+import react from "react";
+import ReactDOM from "react-dom/client";
+const Mar = "Menoni-Studios";
+const year = new Date().getFullYear(); //Get the current year
+const hours = new Date().getHours(); // Gets the current hour (0-23)
+const minutes = new Date().getMinutes(); // Gets the current minutes (0-59)
+const seconds = new Date().getSeconds(); // Gets the current seconds (0-59)
+console.log("Current time: " + hours + ":" + minutes + ":" + seconds); //This will show in the console the hour and will konw if it is working.
+const currentTime = hours; //With this one I will define the logic in the if statement.
+const time = hours + ":" + minutes + ":" + seconds; //This will display the hour in the webapp.
+let greeting; //I define the greeting empty so I can use in the login of the if statement.
+
+//This is the js object that has attribute, so I can use that in Jsx, and change them dynamically.
+//I will call customStyle in the principal div, because I want to apply the img as backgroundImage and also change all the style of the text and more.
+const customStyle = {
+  color: "",
+  backgroundImage: "", //backgroundImage is a valid CSS property that sets an image as the background of an element.
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  height: "100vh",
+  padding: "50px",
+  textAlign: "center",
+};
+//This is the if statement, will use the currentTime const to delimited the logic, setting the greeting, customStyle.color and customStyle.backgroundImage.
+//All this is case sensitive, so remember to statr with lowrcase and use camel case, follow the js rules. This can cause crash.
+if (currentTime < 12) {
+  greeting = "Good Morning!😃";
+  customStyle.color = "Purple";
+  customStyle.backgroundImage = //"url(...)" is the CSS syntax for specifying the image source.
+    "url(https://wallpaper-house.com/data/out/9/wallpaper2you_344927.jpg)";
+} else if (currentTime < 18) {
+  greeting = "Good Afternoon!😛";
+  customStyle.color = "back";
+  customStyle.backgroundImage =
+    "url(https://wallpaperaccess.com/full/2107737.jpg)";
+} else {
+  greeting = "Good Night!🌚";
+  customStyle.color = "white";
+  customStyle.backgroundImage = "url(https://wallpaper.dog/large/991424.jpg)";
+}
+console.log(customStyle); //in the console of the website, I can see this(that means that is working). If not it is not working.
+
+/*Here, I can see who to call customStyle in the dib.
+Who to call greeting.
+Who to call mar.
+Who to call year.
+Whot to call time.*/
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <div style={customStyle}>
+    <h1>{greeting}</h1>
+    <h2>Created by {Mar}</h2>
+    <h3>Copyright {year}</h3>
+    <h1>⏳{time}⏳</h1>
+  </div>
+);
+

@@ -1,0 +1,55 @@
+EXAMPLE 1
+//Create a react app from scratch.
+//It should display a h1 heading.
+//It should display an unordered list (bullet points).
+//It should contain 3 list elements.
+
+import react from "react";
+import ReactDOM from "react-dom/client";
+
+--I can add JavaScript EXPRESSIONS and VALUES in the the Html
+Expression/Values are something that can resolve to a one Values. 
+I can not write statements like if, this will not work--
+
+const mar = "Marcelo";
+//This cosnt is a Value.
+//I will call this values in the Html with the {}
+//Also I can write expression in the Html, like generate a ramdom number, using Math.random.
+const men = "Menoni";
+//I can call 2 values in one element like in the h1.
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <div>
+    <h1>
+      {mar} {men}
+    </h1>
+    <ul>
+      <li>Sowftware Dev, has a number: {Math.floor(Math.random() * 100)}</li>
+      <li>Application Dev</li>
+      <li>Operating Sys Dev</li>
+    </ul>
+  </div>
+);
+EXAMPLE 2
+//Create a react app from scratch.
+//It should display:
+//Created by YOURNAME. This will use a value.
+//Copyright CURRENTYEAR. This will usa an expression = new Date().getFullYear().
+
+import react from "react";
+import ReactDOM from "react-dom/client";
+const Mar = "Menoni-Studios";
+const year = new Date().getFullYear();
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <div>
+    <h1>Created by {Mar}</h1>
+    <h2>Copyright {year}</h2>
+  </div>
+);
+
+
